@@ -1,0 +1,7 @@
+@import './../../shared/scss/mixin.scss';
+
+.contentWrapper{
+    @include addFlex(center, center, row);
+    flex-wrap: wrap;
+    padding-top: 120px;
+}

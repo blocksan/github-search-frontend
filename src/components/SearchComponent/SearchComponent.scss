@@ -1,0 +1,14 @@
+@import './../../shared/scss/variable.scss';
+
+.searchComponent{
+    input{
+        height: 45px;
+        padding: 0 20px;
+        min-width: 320px;
+        font-size: 0.9em;
+        box-sizing: border-box;
+        letter-spacing: 0.06em;
+        border:1px solid $light-color-shade-2;
+        outline: 0;
+    }
+}

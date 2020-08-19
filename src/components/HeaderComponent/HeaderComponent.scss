@@ -1,0 +1,22 @@
+@import './../../shared/scss/variable.scss';
+
+.headerComponent{
+    display: flex;
+    .imageLogo{
+        width: 45px;
+        img{
+            width: 100%;
+        }
+    }
+    .imageContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+        font-size: 0.9em;
+        line-height: 20px;
+        span{
+            color: $light-color-shade-1;
+        }
+    }
+}

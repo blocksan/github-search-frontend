@@ -1,0 +1,19 @@
+@import './../../shared/scss/mixin.scss';
+
+.headerWrapper{
+    // position: fixed;
+    // top: 0;
+    // background: #fff;
+    // width: 100%;
+    .elementWrapper{
+        @include addFlex(center,flex-start,column);
+        max-width: 520px;
+        .selectionComponent{
+            margin-left: 15px;
+        }
+        article{
+            @include addFlex(center,flex-start,row);
+            margin-top: 20px;
+        }
+    }
+}
