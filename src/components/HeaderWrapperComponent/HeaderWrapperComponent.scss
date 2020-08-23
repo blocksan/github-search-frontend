@@ -5,9 +5,14 @@
     // top: 0;
     // background: #fff;
     // width: 100%;
+    width: 100%;
+    // padding-left: 100px;
+    box-sizing: border-box;
     .elementWrapper{
         @include addFlex(center,flex-start,column);
+
         max-width: 520px;
+        margin-top:30px;
         .selectionComponent{
             margin-left: 15px;
         }

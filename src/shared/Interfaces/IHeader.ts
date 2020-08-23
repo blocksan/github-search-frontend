@@ -1,1 +1,5 @@
-export interface IHeaderProps{}
+import { IHeaderWrapperProps } from "./IHeaderWrapper";
+
+export interface IHeaderProps{
+
+}

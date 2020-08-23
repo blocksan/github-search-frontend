@@ -1,5 +1,136 @@
-@import './../../shared/scss/mixin.scss';
+@import "./../../shared/scss/mixin.scss";
+@import "./../../shared/scss/variable.scss";
 
-.repositoryCardComponent{
-    @include rawCard;
-}   
+.repositoryCardComponent {
+  @include rawCard;
+  cursor: pointer;
+  border: 1px solid #eee;
+  overflow: hidden;
+  .cardWrapper {
+    width: 100%;
+    header {
+      @include addFlex(center,flex-start,row);
+      padding: 10px 20px;
+      background: $default-background;
+      border-bottom: 1px solid #eee;
+      transition: all 0.3 ease-in-out;
+      text-transform: capitalize;
+      .cardImage {
+        img {
+          @include rawAvatar;
+          box-shadow: 0 0 5px 4px $light-color-shade-2;
+        }
+      }
+      .cardDetails {
+        @include addFlex(center,flex-start,column);
+        width: 100%;
+        margin-left: 20px;
+        height: 120px;
+        a {
+          text-decoration: none;
+          margin-top: 10px;
+        }
+      }
+    }
+    .info {
+      padding: 20px;
+      display: flex;
+      .leftWrapper {
+        @include addFlex(center,flex-start,column);
+        position: relative;
+        flex:1;
+        .inforow{
+           min-height: 20px;
+          line-height: 20px;
+          padding:5px 0;
+            &.repoUrl{
+              max-width: 320px;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              transition: all 0.3s ease-in-out;
+            }
+            &.createdAt{
+              bottom: -15px;
+              right: -15px;
+              transition: all 0.3s ease-in-out;
+              opacity: 0;
+            }
+        }
+        .description{
+            p{
+                margin:0
+            }
+        }
+      }
+      
+    }
+    footer {
+      .iconsContentWrapper {
+        width: 100%;
+        @include addFlex(center,center,row);
+        .infoIcons{
+            text-align: center;
+            @include addFlex(center,center,row);
+            background: $default-background;
+            height: 50px;
+            border-right: 1px solid $light-color-shade-2;
+            flex: 1;
+            span{
+              margin-left: 5px;
+            }
+            &:last-child{
+              border-right: 0;
+            }
+        }
+        
+      }
+    }
+  }
+  &:hover {
+    header {
+      background: #dcffe4;
+      .cardImage {
+        img {
+          box-shadow: unset;
+        }
+      }
+    }
+    .info {
+      .leftWrapper {
+        .inforow{
+          &.createdAt{
+            opacity: 1;
+          }
+        }
+      }
+    }
+    footer{
+      .iconsContentWrapper{
+        .infoIcons{
+          // background-color: #dcffe4;
+          &.stars{
+            svg{
+              color: gold;
+            }
+          }
+          &.forks{
+            svg{
+              color: green;
+            }
+          }
+          &.archived{
+            svg{
+              color: #ddd;
+            }
+          }
+          &.access{
+            svg{
+              color: red;
+            }
+          }
+        }
+      }
+    }
+  }
+}

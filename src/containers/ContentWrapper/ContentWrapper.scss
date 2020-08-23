@@ -2,6 +2,32 @@
 
 .contentWrapper{
     @include addFlex(center, center, row);
-    flex-wrap: wrap;
-    padding-top: 120px;
+    .showContent{
+        @include addFlex(flex-start, center, row);
+        flex-wrap: wrap;
+        width: 100%;
+        padding-top: 50px;
+    }
+    .showNoContent, .showError, .showLoading{
+        width: 380px;
+        height: 200px;
+        @include addFlex(center, center, row);
+        font-size: 2em;
+        position: absolute;
+        top: 50%;
+        transform: translateX(10px);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        transform: translate3d(-50%,-50%,0);
+    }
+    .showError{
+        color: crimson;
+    }
+    .showOverlayLoading{
+        background: #000;
+        height:50vh;
+        width: 100%;
+    }
 }

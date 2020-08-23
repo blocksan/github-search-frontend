@@ -17,9 +17,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "preserve",
+    "noImplicitAny": false
   },
   "include": [
     "src"
-  ]
+  ],
+  "exclude": ["public/"],
+  "typeRoots": [
+    "./node_modules/@types",
+    "@types"
+]
 }

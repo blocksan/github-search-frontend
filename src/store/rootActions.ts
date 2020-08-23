@@ -1,0 +1,1 @@
+export { fetchContentAction } from './content/content.action';

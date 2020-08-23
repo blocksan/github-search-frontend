@@ -8,14 +8,25 @@
 }
 
 @mixin rawCard {
-    height: 300px;
-    margin: 10px;
+    min-height: 300px;
+    margin-left: 0;
+    margin-right: 50px;
+    margin-bottom: 50px;
     width: 400px;
     @include addFlex(center, center, column);
-    box-shadow: 0 0 2px 1px $light-color-shade-3;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
     &:hover{
-        box-shadow: unset;
+        box-shadow: 0 11px 11px 0 $light-color-shade-2;
+        transform: translateY(-10px);
     }
+}
+
+@mixin rawAvatar{
+    max-width: 120px;
+    max-height: 120px;
+    min-width: 120px;
+    min-height: 120px;
+    border-radius: 50%;
+    transition: all 0.3s ease-in-out;
 }
