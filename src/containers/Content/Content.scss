@@ -1,9 +1,10 @@
 @import './../../shared/scss/mixin.scss';
 
 .content{
-    @include addFlex(center,center,column);
+    @include addFlex(center,space-between,column);
     max-width: 1440px;
     margin: 0 auto;
+    height: 100vh;
     // height: 100%;
     // position: absolute;
     // top: 50%;

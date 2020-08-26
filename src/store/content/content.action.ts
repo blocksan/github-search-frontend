@@ -23,6 +23,21 @@ export const fetchContentAction = (queryparams: TFetchContent) => {
         const { page, type, searchkey } = queryparams;
         dispatch({ ...loadingState, page: page, type: FETCH_CONTENT, contentType: type, });
         try {
+
+            /**
+             * If user change dropdown then content should be reset 
+             */
+            if(!searchkey){
+                    return dispatch({
+                    ...successState,
+                    contentList: [],
+                    page,
+                    contentType: type,
+                    searchkey,
+                    totalPages:0,
+                    type: FETCH_CONTENT
+                });
+            }
             const result = await axiosInstance.post('api/content/fetch',{
                 ...queryparams
             });
@@ -46,13 +61,15 @@ export const fetchContentAction = (queryparams: TFetchContent) => {
             //         type: FETCH_CONTENT
             //     });
             // },1000)
-            console.log(result.data)
             if (result.data.status) {
+                const {content:{totalPages, items}} = result.data
                     return dispatch({
                     ...successState,
-                    contentList: result.data.content.items,
+                    contentList: items,
                     page,
                     contentType: type,
+                    searchkey,
+                    totalPages,
                     type: FETCH_CONTENT
                 });
             }

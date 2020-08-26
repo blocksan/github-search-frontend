@@ -20,7 +20,6 @@ export const ContentReducer = (state = initialState, action: IReducerAction) => 
     switch (action.type) {
         case actions.FETCH_CONTENT:{
             const {loading} = action;
-            console.log(action.contentType,'----action.contentType----')
             if(loading){
                 return { ...state, fetchingContent: true, fetchingContentError: undefined, page: action.page, type: action.contentType};
             }
@@ -38,6 +37,8 @@ export const ContentReducer = (state = initialState, action: IReducerAction) => 
                     ...state,
                     page: action.page,
                     type: action.contentType,
+                    searchkey: action.searchkey,
+                    totalPages: action.totalPages,
                     fetchingContent: false, fetchingContentStatus: action.status, fetchingContentError: undefined, contentList
                 }
             }

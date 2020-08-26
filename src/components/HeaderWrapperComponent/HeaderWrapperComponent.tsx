@@ -15,9 +15,11 @@ import { connect } from "react-redux";
 import { fetchContentAction } from "../../store/rootActions";
 
 export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
+  const { totalPages, page: currentPage } = props;
 
   const [value, setSearchValue] = useState("")
   const [page, setInitPage] = useState(1)
+  const [firstInit, setFirstInit] = useState(false)
   const [type, setSearchType] = useState(EContentType.user)
 
   /**
@@ -28,6 +30,7 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    */
   const handleTypeChange = (type: EContentType) => {
     setSearchType(type)
+    setFirstInit(true)
     setInitPage(1)
   };
 
@@ -40,6 +43,8 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    *
    */
   const handleInputChange = (value: string) => {
+    if(value)
+      setFirstInit(true)
     setSearchValue(value)
   };
   
@@ -49,8 +54,11 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    */
   const callFetchDispatcher = () =>{
     const { fetchContentDispatcher } = props;
-    if(value.length > 3)
+    if(value.length >= 3)
       fetchContentDispatcher({ type, page, searchkey: value });
+    else if (firstInit && (!value || value.length<3)){
+      fetchContentDispatcher({ type, page, searchkey: "" });
+    }
 
   } 
 
@@ -59,15 +67,14 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    * Effect method to call the utility callFetchDispatcher 
    */
   useEffect(() => {
-
-    callFetchDispatcher()
+      callFetchDispatcher()
     // return () => {
     //   cleanup
     // }
   }, [value,type, page, callFetchDispatcher])
 
   return (
-    <section className="headerWrapper">
+    <section className={`headerWrapper ${totalPages ? 'fixed' : ''}`}>
       <section className="elementWrapper">
         <HeaderComponent></HeaderComponent>
         <article>
@@ -79,12 +86,18 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
           ></SelectionComponent>
         </article>
       </section>
+      {totalPages > 0 && <article className="pageNumberView">
+          Fetched {currentPage} of {totalPages} pages
+      </article>}
     </section>
   );
 };
 
 const stateToProps = (state: any) => {
-  return {}
+  return {
+    page: state.content.page,
+    totalPages: state.content.totalPages
+  }
 };
 const dispatchers = (dispatch: any) => {
   return {

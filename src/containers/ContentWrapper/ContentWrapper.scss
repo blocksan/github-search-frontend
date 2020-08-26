@@ -1,12 +1,15 @@
 @import './../../shared/scss/mixin.scss';
 
 .contentWrapper{
-    @include addFlex(center, center, row);
+    @include addFlex(center, center, column);
+    padding-top: 350px;
+    height: 100%;
     .showContent{
         @include addFlex(flex-start, center, row);
         flex-wrap: wrap;
         width: 100%;
         padding-top: 50px;
+        height: 100%;
     }
     .showNoContent, .showError, .showLoading{
         width: 380px;
@@ -26,8 +29,11 @@
         color: crimson;
     }
     .showOverlayLoading{
-        background: #000;
         height:50vh;
         width: 100%;
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

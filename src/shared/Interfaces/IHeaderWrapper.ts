@@ -9,4 +9,13 @@ export interface IHeaderWrapperProps{
      */
     fetchContentDispatcher:(params: TFetchContent) => void
     
+    /**
+     * Total number of available pages
+     */
+    totalPages: number;
+
+    /**
+     * Current rendered page
+     */
+    page: number;
 }

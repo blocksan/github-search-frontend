@@ -1,6 +1,7 @@
 @import './../../shared/scss/variable.scss';
 
 .searchComponent{
+    position: relative;
     input{
         height: 45px;
         padding: 0 20px;
@@ -10,5 +11,19 @@
         letter-spacing: 0.06em;
         border:1px solid $light-color-shade-2;
         outline: 0;
+        padding-right: 40px;
+    }
+    div{
+        width: 40px;
+        right: -5px;
+        top: 10px;
+        position: absolute;
+        img{
+            padding:5px;
+            cursor: pointer;
+            &.crossIcon{
+                margin-top: 2px;
+            }
+        }
     }
 }

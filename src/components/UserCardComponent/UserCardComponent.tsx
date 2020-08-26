@@ -19,7 +19,6 @@ export const UserCardComponent = (props: IUserTypeContent) => {
     html_url,
     avatar_url    
   } = props;
-  console.log({html_url})
   return (
     <section className="userCardComponent">
       <article className="cardWrapper">

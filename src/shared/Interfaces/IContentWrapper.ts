@@ -35,6 +35,11 @@ export interface IContentWrapperProps{
 
 
     error: string | undefined;
+
+    /**
+     * Total number of pages available to fetch
+     */
+    totalPages: number;
     
     fetchContentDispatcher:(params: TFetchContent) => void
 }
