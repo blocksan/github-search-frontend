@@ -6,3 +6,4 @@ export * from './IRepositoryCard';
 export * from './IHeaderWrapper';
 export * from './IReducerAction';
 export * from './IBaseApiState';
+export * from './IResponseTypes'

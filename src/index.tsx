@@ -12,7 +12,7 @@ import { Content } from "./containers/Content/Content";
 import { Provider } from "react-redux";
 import logger from 'redux-logger';
 
-const middlewares = [middleware]
+const middlewares = [logger, middleware]
 
 /**
  * Store without persistence

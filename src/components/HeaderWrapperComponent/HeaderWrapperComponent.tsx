@@ -49,8 +49,8 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    */
   const callFetchDispatcher = () =>{
     const { fetchContentDispatcher } = props;
-    console.log(type,'---type----')
-    fetchContentDispatcher({ type, page, value });
+    if(value.length > 3)
+      fetchContentDispatcher({ type, page, searchkey: value });
 
   } 
 

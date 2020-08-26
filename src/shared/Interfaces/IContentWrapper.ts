@@ -1,6 +1,7 @@
 import { IRepositoryCardProps } from "./IRepositoryCard";
 import { IUserCardProps } from "./IUserCard";
 import { EContentType, TFetchContent } from "./IContent";
+import { IUserTypeContent, IRespositoryTypeContent } from "./IResponseTypes";
 
 /**
  * Interface declaration for ContentWrapper
@@ -12,7 +13,7 @@ export interface IContentWrapperProps{
      * Repository content
      * User content
      */
-    contents: Array<IRepositoryCardProps|IUserCardProps>;
+    contents: Array<IUserTypeContent|IRespositoryTypeContent>;
 
     /**
      * Enum constraint for type of content

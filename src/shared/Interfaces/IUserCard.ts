@@ -40,9 +40,14 @@ export interface IBaseUser {
    /*
   *Profile link of the user
   */
-  profileUrl: string;
+  html_url: string;
    /*
   *Profile pic url of the user
   */
-  avatarUrl: string;
+  avatar_url: string;
+
+  /**
+   * Login id of the user
+   */
+  login: string;
 }

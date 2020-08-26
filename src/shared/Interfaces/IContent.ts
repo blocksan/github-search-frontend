@@ -9,7 +9,7 @@ export enum EContentType{
 export type TFetchContent = {
     type: EContentType
     page: number
-    value: string
+    searchkey: string
 }
 
 export interface IContentProps{

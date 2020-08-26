@@ -2,8 +2,6 @@ import { IContentReducer } from "../../shared/Interfaces";
 import { EContentType } from "../../shared/Interfaces/IContent";
 import { IReducerAction } from "../../shared/Interfaces/IReducerAction";
 import { actions } from "../../shared/utils/action";
-import { __UserContents, __RepositoryContents } from "../../test/fixtures/contents";
-
 /**
  * Content reducer
  * @remarks

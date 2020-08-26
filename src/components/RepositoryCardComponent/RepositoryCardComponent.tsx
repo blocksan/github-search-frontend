@@ -1,62 +1,95 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar, faCodeBranch, faLock, faArchive } from '@fortawesome/free-solid-svg-icons'
-import NumericLabel from 'react-pretty-numbers';
-import { IRepositoryCardProps } from "../../shared/Interfaces";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faStar,
+  faCodeBranch,
+  faLock,
+  faArchive,
+} from "@fortawesome/free-solid-svg-icons";
+import NumericLabel from "react-pretty-numbers";
+import {
+  IRespositoryTypeContent,
+} from "../../shared/Interfaces";
 import "./RepositoryCardComponent.scss";
+import Moment from "react-moment";
+import { momentDateFormat } from "./../../shared/utils/dateFormat";
 import { numberFormatOptions } from "../../shared/utils/numerFormat";
 
-export const RepositoryCardComponent = (props: IRepositoryCardProps) => {
-  const {name, profileUrl, avatarUrl, repoName, repoUrl, repoDescription, stars, forks, archived, isPrivate, createdOn} = props;
+export const RepositoryCardComponent = (props: IRespositoryTypeContent) => {
+  const {
+    name,
+    html_url,
+    owner,
+    description,
+    stargazers_count,
+    forks_count,
+    archived,
+    private: isPrivate,
+    created_at,
+  } = props;
   return (
     <section className="repositoryCardComponent">
       <article className="cardWrapper">
         <header>
           <div className="cardImage">
-            <img
-              src={avatarUrl}
-              alt={name}
-            />
+            <img src={owner.avatar_url} alt={owner.login} />
           </div>
           <div className="cardDetails">
-            <h4>Sandeep Ghosh</h4>
-            <a href={profileUrl} className="link">See profile</a>
+            <h4>{owner.login}</h4>
+            <a target="_blank" href={owner.html_url} className="link">
+              See profile
+            </a>
           </div>
         </header>
         <section className="info">
           <div className="leftWrapper">
             <div className="inforow name">
-              <span className="bold">{repoName}</span>
+              <span className="bold">{name}</span>
             </div>
             <div className="inforow repoUrl">
-              <a href={repoUrl} className="link">{repoUrl}</a>
+              <a href={html_url} className="link">
+                {html_url}
+              </a>
             </div>
             <div className="inforow createdAt pill shadow">
-  <strong>{createdOn}</strong>
+              <strong>
+                <Moment format={momentDateFormat.format}>{created_at}</Moment>{" "}
+              </strong>
             </div>
             <div className="description">
               <div className="inforow">
                 <span className="tag"> Description</span>
               </div>
-              <p>
-               {repoDescription}
-              </p>
+              <p>{description}</p>
             </div>
           </div>
         </section>
         <footer>
           <div className="iconsContentWrapper">
             <div className="infoIcons stars">
-            <FontAwesomeIcon icon={faStar} title="Star"/>
-  <span><NumericLabel params={numberFormatOptions}>{stars}</NumericLabel></span></div>
+              <FontAwesomeIcon icon={faStar} title="Stars" />
+              <span>
+                <NumericLabel params={numberFormatOptions}>
+                  {stargazers_count}
+                </NumericLabel>
+              </span>
+            </div>
             <div className="infoIcons forks">
-            <FontAwesomeIcon icon={faCodeBranch} title="Fork" />
-  <span>{forks}</span></div>
+              <FontAwesomeIcon icon={faCodeBranch} title="Forks" />
+              <span>{forks_count}</span>
+            </div>
             <div className="infoIcons archived">
-              <FontAwesomeIcon icon={faArchive} title={archived? "Archived": "Not Archived"} className={archived? "Archived": "Not Archived"} ></FontAwesomeIcon>
-              </div>
+              <FontAwesomeIcon
+                icon={faArchive}
+                title={archived ? "Archived" : "Not Archived"}
+                className={archived ? "Archived" : "Not Archived"}
+              ></FontAwesomeIcon>
+            </div>
             <div className="infoIcons access">
-            <FontAwesomeIcon icon={faLock} title={isPrivate?"Private":"Public"} ></FontAwesomeIcon>
+              <FontAwesomeIcon
+                icon={faLock}
+                title={isPrivate ? "Private" : "Public"}
+              ></FontAwesomeIcon>
             </div>
           </div>
         </footer>

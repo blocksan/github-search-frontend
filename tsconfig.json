@@ -21,11 +21,11 @@
     "noImplicitAny": false
   },
   "include": [
-    "src"
-  ],
-  "exclude": ["public/"],
-  "typeRoots": [
-    "./node_modules/@types",
-    "@types"
-]
+    "./src/*",
+    "./src/setupTests.ts"
+  ]
 }
+
+
+
+

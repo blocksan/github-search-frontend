@@ -8,6 +8,11 @@
   overflow: hidden;
   .cardWrapper {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 355px;
+    position: relative;
+    justify-content: flex-start;
     header {
       @include addFlex(center,flex-start,row);
       padding: 10px 20px;
@@ -16,9 +21,14 @@
       transition: all 0.3 ease-in-out;
       text-transform: capitalize;
       .cardImage {
+        max-width: 120px;
+    max-height: 120px;
         img {
           @include rawAvatar;
           box-shadow: 0 0 5px 4px $light-color-shade-2;
+          padding: 15px;
+    box-sizing: border-box;
+    width: 100%;
         }
       }
       .cardDetails {
@@ -43,6 +53,9 @@
            min-height: 20px;
           line-height: 20px;
           padding:5px 0;
+          .name{
+            font-weight: 600;
+          }
             &.repoUrl{
               max-width: 320px;
               white-space: nowrap;
@@ -66,6 +79,9 @@
       
     }
     footer {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
       .iconsContentWrapper {
         width: 100%;
         @include addFlex(center,center,row);

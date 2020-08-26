@@ -1,8 +1,8 @@
 import React, { useRef, useCallback } from "react";
 import {
   IContentWrapperProps,
-  IUserCardProps,
-  IRepositoryCardProps,
+  IUserTypeContent,
+  IRespositoryTypeContent,
 } from "../../shared/Interfaces";
 import { EContentType, TFetchContent } from "../../shared/Interfaces/IContent";
 import "./ContentWrapper.scss";
@@ -16,20 +16,19 @@ import { connect } from "react-redux";
 import { fetchContentAction } from "../../store/rootActions";
 
 const BaseContentWrapper = (props: IContentWrapperProps) => {
-  const { contents, type, loading, fetchContentDispatcher, value, error, page } = props;
-  console.log("OUTPUT: BaseContentWrapper -> loading", contents.length, type)
+  const { contents, type, loading, fetchContentDispatcher, error, page } = props;
 
   const observer = useRef() as React.MutableRefObject<any>;
   const lastElementRef = useCallback(
     (node) => {
       if (loading) return;
-      if (observer && observer.current) {
+      if (observer && observer.current) { 
         observer.current.disconnect();
       }
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           console.log('I am printed')
-          fetchContentDispatcher({ page: !page ? 1 : page+1, type, value:"123123" });
+          fetchContentDispatcher({ page: !page ? 1 : page+1, type, searchkey:"123123" });
         }
       });
       if (node) observer.current.observe(node);
@@ -42,7 +41,7 @@ const BaseContentWrapper = (props: IContentWrapperProps) => {
         (<div className="showContent">
           {contents.map((content, index) => {
             if (type === EContentType.user) {
-              const tempprops = content as IUserCardProps;
+              const tempprops = content as IUserTypeContent;
               if (contents.length === index + 1)
                 return (
                   <div ref={lastElementRef} key={`${index}`}>
@@ -57,7 +56,7 @@ const BaseContentWrapper = (props: IContentWrapperProps) => {
                   ></UserCardComponent>
                 );
             } else {
-              const tempprops = content as IRepositoryCardProps;
+              const tempprops = content as IRespositoryTypeContent;
               if (contents.length === index + 1)
                 return (
                   <div ref={lastElementRef} key={`${index}`}>
