@@ -14,8 +14,4 @@ export interface IHeaderWrapperProps{
      */
     totalPages: number;
 
-    /**
-     * Current rendered page
-     */
-    page: number;
 }

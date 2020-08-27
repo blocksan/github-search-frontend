@@ -1,18 +1,15 @@
 @import './../../shared/scss/mixin.scss';
+@import './../../shared/scss/variable.scss';
 
 .headerWrapper{
-    // position: fixed;
-    // top: 0;
-    // background: #fff;
-    // width: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-end;
-    // padding-left: 100px;
+    padding-left: 42px;
+    align-items: flex-end;
     box-sizing: border-box;
-    margin-top: -100px;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     .elementWrapper{
         @include addFlex(center,flex-start,column);
 
@@ -24,6 +21,14 @@
         article{
             @include addFlex(center,flex-start,row);
             margin-top: 20px;
+            position: relative;
+            .showTotalPages{
+                position: absolute;
+                left: 0;
+                bottom: -20px;
+                font-size: 0.9em;
+                color: $font-gray;
+            }
         }
     }
     .pageNumberView{
@@ -33,14 +38,22 @@
         margin-right: 50px
     }
     &.fixed{
-        position: fixed;
-        top: 0;
-        background: #fff;
-        z-index: 1;
-        margin-top: unset;
-        justify-content: flex-start;
-        padding-bottom: 30px;
-        // box-shadow: 0px 0px 5px 1px #eee;
-        backface-visibility: hidden;
+        height: 80vh;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0;
+    }
+}
+@media screen and (max-width:$sx-mobile){
+    .headerWrapper{
+        padding-left: 10px;
+        article{
+            .searchComponent{
+                input{
+                    max-width: 320px;
+                    min-width: 260px;
+                }
+            }
+        }
     }
 }

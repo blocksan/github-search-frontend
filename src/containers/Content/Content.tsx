@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { IContentProps } from "../../shared/Interfaces";
 import "./Content.scss";
-import { HeaderWrapperComponent } from "../../components/HeaderWrapperComponent/HeaderWrapperComponent";
-import { ContentWrapper } from "../ContentWrapper/ContentWrapper";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {ComponentsWrapper} from './../../components/ComponentsWrapper/ComponentsWrapper'
 class Content extends Component<IContentProps, any> {
   /**
    * @Remarks
@@ -14,9 +12,10 @@ class Content extends Component<IContentProps, any> {
     return (
       <Router>
         <div className="content">
-          <HeaderWrapperComponent></HeaderWrapperComponent>
+            
           <Switch>
-            <Route path="/content" exact component={ContentWrapper} />
+            <Route path="/" exact component={ComponentsWrapper} />
+            <Redirect to="/" />
           </Switch>
         </div>
       </Router>

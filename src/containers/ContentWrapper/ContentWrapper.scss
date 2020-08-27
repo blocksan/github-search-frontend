@@ -1,39 +1,76 @@
-@import './../../shared/scss/mixin.scss';
+@import "./../../shared/scss/mixin.scss";
+@import "./../../shared/scss/variable.scss";
 
-.contentWrapper{
-    @include addFlex(center, center, column);
-    padding-top: 350px;
+.contentWrapper {
+  @include addFlex(center, center, column);
+  height: 100%;
+  .showContent {
+    @include addFlex(center, center, row);
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 50px;
     height: 100%;
-    .showContent{
-        @include addFlex(flex-start, center, row);
-        flex-wrap: wrap;
-        width: 100%;
-        padding-top: 50px;
-        height: 100%;
+
+  }
+  .showNoContent,
+  .showError,
+  .showLoading {
+    width: 380px;
+    height: 200px;
+    @include addFlex(center, center, row);
+    font-size: 1.5em;
+    width: 380px;
+    height: 50vh;
+    color: #757575;
+    color: $font-gray;
+    &.showOverlayLoading {
+      width: 100%;
+      font-size: 2em;
+      display: flex;
+      left: 0;
+      margin-top: -120px;
+      position: relative;
+      justify-content: center;
+      align-items: center;
     }
-    .showNoContent, .showError, .showLoading{
-        width: 380px;
-        height: 200px;
-        @include addFlex(center, center, row);
-        font-size: 2em;
-        position: absolute;
-        top: 50%;
-        transform: translateX(10px);
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%);
-        transform: translate3d(-50%,-50%,0);
+  }
+  .showError {
+    color: crimson;
+  }
+}
+
+@media screen and (min-width: $sm-mobile) and (max-width: $hd-desktop) {
+  .contentWrapper {
+    .showContent {
+      @include addFlex(flex-start, center, row);
+      padding-left: 40px;
+      box-sizing: border-box;
+      .userCardComponent,.repositoryCardComponent {
+        max-width: 300px;
+        margin-right: 20px;
+      }
     }
-    .showError{
-        color: crimson;
+  }
+}
+@media screen and (min-width: $sx-mobile) and (max-width: $sm-mobile) {
+  .contentWrapper {
+    .showContent {
+      .userCardComponent,.repositoryCardComponent {
+        max-width: 300px;
+        margin-right: 20px;
+      }
     }
-    .showOverlayLoading{
-        height:50vh;
-        width: 100%;
-        font-size: 2em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  }
+}
+
+@media screen and (max-width: $sx-mobile) {
+  .contentWrapper {
+    .showContent {
+      padding-left: 10px;
+      .userCardComponent,.repositoryCardComponent {
+        max-width: unset;
+        margin-right: 0;
+      }
     }
+  }
 }

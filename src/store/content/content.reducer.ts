@@ -21,7 +21,7 @@ export const ContentReducer = (state = initialState, action: IReducerAction) => 
         case actions.FETCH_CONTENT:{
             const {loading} = action;
             if(loading){
-                return { ...state, fetchingContent: true, fetchingContentError: undefined, page: action.page, type: action.contentType};
+                return { ...state, fetchingContent: true, searchkey: action.searchkey, fetchingContentError: undefined, page: action.page, type: action.contentType};
             }
             if(action.status){
                 /**

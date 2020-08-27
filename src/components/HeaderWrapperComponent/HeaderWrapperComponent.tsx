@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 import { fetchContentAction } from "../../store/rootActions";
 
 export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
-  const { totalPages, page: currentPage } = props;
+  const { totalPages } = props;
 
   const [value, setSearchValue] = useState("")
   const [page, setInitPage] = useState(1)
@@ -54,9 +54,9 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    */
   const callFetchDispatcher = () =>{
     const { fetchContentDispatcher } = props;
-    if(value.length >= 3)
+    if(value.length)
       fetchContentDispatcher({ type, page, searchkey: value });
-    else if (firstInit && (!value || value.length<3)){
+    else if (firstInit && (!value)){
       fetchContentDispatcher({ type, page, searchkey: "" });
     }
 
@@ -68,13 +68,14 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    */
   useEffect(() => {
       callFetchDispatcher()
+    //TODO:
     // return () => {
     //   cleanup
     // }
-  }, [value,type, page, callFetchDispatcher])
+  }, [callFetchDispatcher])
 
   return (
-    <section className={`headerWrapper ${totalPages ? 'fixed' : ''}`}>
+    <section className={`headerWrapper ${!value && !totalPages ? 'fixed':''}`}>
       <section className="elementWrapper">
         <HeaderComponent></HeaderComponent>
         <article>
@@ -84,18 +85,15 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
           <SelectionComponent
             typeChangedEvent={handleTypeChange}
           ></SelectionComponent>
+          {totalPages > 0 && <div className="showTotalPages">( {totalPages} {totalPages>1?'pages':'page'} )</div>  }
         </article>
       </section>
-      {totalPages > 0 && <article className="pageNumberView">
-          Fetched {currentPage} of {totalPages} pages
-      </article>}
     </section>
   );
 };
 
 const stateToProps = (state: any) => {
   return {
-    page: state.content.page,
     totalPages: state.content.totalPages
   }
 };

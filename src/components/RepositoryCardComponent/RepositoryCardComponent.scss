@@ -14,7 +14,7 @@
     position: relative;
     justify-content: flex-start;
     header {
-      @include addFlex(center,flex-start,row);
+      @include addFlex(center, flex-start, row);
       padding: 10px 20px;
       background: $default-background;
       border-bottom: 1px solid #eee;
@@ -22,17 +22,17 @@
       text-transform: capitalize;
       .cardImage {
         max-width: 120px;
-    max-height: 120px;
+        max-height: 120px;
         img {
           @include rawAvatar;
           box-shadow: 0 0 5px 4px $light-color-shade-2;
           padding: 15px;
-    box-sizing: border-box;
-    width: 100%;
+          box-sizing: border-box;
+          width: 100%;
         }
       }
       .cardDetails {
-        @include addFlex(center,flex-start,column);
+        @include addFlex(center, flex-start, column);
         width: 100%;
         margin-left: 20px;
         height: 120px;
@@ -46,37 +46,37 @@
       padding: 20px;
       display: flex;
       .leftWrapper {
-        @include addFlex(center,flex-start,column);
+        @include addFlex(center, flex-start, column);
         position: relative;
-        flex:1;
-        .inforow{
-           min-height: 20px;
+        flex: 1;
+        .inforow {
+          min-height: 20px;
           line-height: 20px;
-          padding:5px 0;
-          .name{
+          padding: 5px 0;
+          .name {
             font-weight: 600;
           }
-            &.repoUrl{
-              max-width: 320px;
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              transition: all 0.3s ease-in-out;
-            }
-            &.createdAt{
-              bottom: -15px;
-              right: -15px;
-              transition: all 0.3s ease-in-out;
-              opacity: 0;
-            }
+          &.repoUrl {
+            max-width: 280px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.3s ease-in-out;
+            
+          }
+          &.createdAt {
+            bottom: -15px;
+            right: -15px;
+            transition: all 0.3s ease-in-out;
+            opacity: 0;
+          }
         }
-        .description{
-            p{
-                margin:0
-            }
+        .description {
+          p {
+            margin: 0;
+          }
         }
       }
-      
     }
     footer {
       position: absolute;
@@ -84,22 +84,21 @@
       bottom: 0;
       .iconsContentWrapper {
         width: 100%;
-        @include addFlex(center,center,row);
-        .infoIcons{
-            text-align: center;
-            @include addFlex(center,center,row);
-            background: $default-background;
-            height: 50px;
-            border-right: 1px solid $light-color-shade-2;
-            flex: 1;
-            span{
-              margin-left: 5px;
-            }
-            &:last-child{
-              border-right: 0;
-            }
+        @include addFlex(center, center, row);
+        .infoIcons {
+          text-align: center;
+          @include addFlex(center, center, row);
+          background: $default-background;
+          height: 50px;
+          border-right: 1px solid $light-color-shade-2;
+          flex: 1;
+          span {
+            margin-left: 5px;
+          }
+          &:last-child {
+            border-right: 0;
+          }
         }
-        
       }
     }
   }
@@ -114,34 +113,34 @@
     }
     .info {
       .leftWrapper {
-        .inforow{
-          &.createdAt{
+        .inforow {
+          &.createdAt {
             opacity: 1;
           }
         }
       }
     }
-    footer{
-      .iconsContentWrapper{
-        .infoIcons{
+    footer {
+      .iconsContentWrapper {
+        .infoIcons {
           // background-color: #dcffe4;
-          &.stars{
-            svg{
+          &.stars {
+            svg {
               color: gold;
             }
           }
-          &.forks{
-            svg{
+          &.forks {
+            svg {
               color: green;
             }
           }
-          &.archived{
-            svg{
+          &.archived {
+            svg {
               color: #ddd;
             }
           }
-          &.access{
-            svg{
+          &.access {
+            svg {
               color: red;
             }
           }
