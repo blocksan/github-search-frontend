@@ -85,7 +85,7 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
           <SelectionComponent
             typeChangedEvent={handleTypeChange}
           ></SelectionComponent>
-          {totalPages > 0 && <div className="showTotalPages">( {totalPages} {totalPages>1?'pages':'page'} )</div>  }
+          {totalPages > 0 && <div className="showTotalPages">( {totalPages} {totalPages>1?'Pages':'Page'} )</div>  }
         </article>
       </section>
     </section>

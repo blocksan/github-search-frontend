@@ -1,7 +1,7 @@
 import React from "react";
 import { IUserTypeContent } from "../../shared/Interfaces";
 import "./UserCardComponent.scss";
-import Moment from 'react-moment';
+import Moment from "react-moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faMapMarkerAlt,
@@ -10,14 +10,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import NumericLabel from "react-pretty-numbers";
-import { momentDateFormat } from './../../shared/utils/dateFormat'
-
+import { momentDateFormat } from "./../../shared/utils/dateFormat";
 
 export const UserCardComponent = (props: IUserTypeContent) => {
   const {
-    detailInfo:{ name, bio, created_at, followers, blog, location, public_repos},
+    detailInfo: {
+      name,
+      bio,
+      created_at,
+      followers,
+      blog,
+      location,
+      public_repos,
+    },
     html_url,
-    avatar_url    
+    avatar_url,
   } = props;
   return (
     <section className="userCardComponent">
@@ -32,12 +39,14 @@ export const UserCardComponent = (props: IUserTypeContent) => {
           <div className="locationJoinedWrapper">
             <div className="location cta">
               <FontAwesomeIcon icon={faMapMarkerAlt} title="Star" />
-              <strong> {location} </strong>
+              <strong>  {location || ' Earth'}  </strong>
             </div>
-            <div className="joinedOn">
-              <em>Joined On :</em>
-              <span><Moment format={momentDateFormat.format}>{created_at}</Moment> </span>
-            </div>
+          </div>
+          <div className="joinedOn">
+            <i>Joined On:</i>
+            <span>
+              <Moment format={momentDateFormat.format}>{created_at}</Moment>{" "}
+            </span>
           </div>
           <div className="iconWrapper">
             <a target="_blank" href={html_url} className="link github cta">
@@ -54,7 +63,7 @@ export const UserCardComponent = (props: IUserTypeContent) => {
             <div className="infoIcons stars">
               <FontAwesomeIcon icon={faGithubSquare} title="Pubic Repos" />
               <span>
-                <NumericLabel params={{precision:0}}>
+                <NumericLabel params={{ precision: 0 }}>
                   {public_repos}
                 </NumericLabel>
               </span>
