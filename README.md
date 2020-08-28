@@ -13,6 +13,16 @@ Following technologies have been used while building this application
 9. ***React Moment*** 
 10. ***React Memoization*** 
 
+#### Decisions made during the development
+1. ***Infinite Scrolling*** - 
+     - Github API results only 30 items at a time, hence to see the other results either we can use trivial solution i.e Pagination or Infinite Scroll. 
+     - I Chose ***Infinite Scroll*** as the application is mobile friendly hence it will be easier for the user to swipe UP. 
+2. ***Multi Stage Build*** 
+     - I chose multi stage docker build for the frontend to make the container size very small and other advance advantages we can get like Zofli compression (Can be added in Extended Scope).
+3. ***Session Storage*** -  
+    -  To cache the API result we can either use local storage or session storage. I chose session storage as it will clear the store on browser close and tab close. 
+    -  By clearing the frontend store, we can easily simulate and see the performance enhancement from the REDIS cache which is implemented at backend. 
+
 #### Screen sizes available
 1. UHD Desktop - 2560*
 2. Large Screen - 1440*
