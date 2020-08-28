@@ -15,7 +15,7 @@ import Moment from "react-moment";
 import { momentDateFormat } from "./../../shared/utils/dateFormat";
 import { numberFormatOptions } from "../../shared/utils/numerFormat";
 
-export const RepositoryCardComponent = (props: IRespositoryTypeContent) => {
+const BaseRepositoryCardComponent = (props: IRespositoryTypeContent) => {
   const {
     name,
     html_url,
@@ -97,3 +97,5 @@ export const RepositoryCardComponent = (props: IRespositoryTypeContent) => {
     </section>
   );
 };
+
+export const RepositoryCardComponent = React.memo(BaseRepositoryCardComponent)

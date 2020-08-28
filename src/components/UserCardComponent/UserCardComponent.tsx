@@ -12,7 +12,7 @@ import { faGithub, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import NumericLabel from "react-pretty-numbers";
 import { momentDateFormat } from "./../../shared/utils/dateFormat";
 
-export const UserCardComponent = (props: IUserTypeContent) => {
+const BaseUserCardComponent = (props: IUserTypeContent) => {
   const {
     detailInfo: {
       name,
@@ -86,3 +86,5 @@ export const UserCardComponent = (props: IUserTypeContent) => {
     </section>
   );
 };
+
+export const UserCardComponent = React.memo(BaseUserCardComponent)
