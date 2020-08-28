@@ -19,11 +19,12 @@ WORKDIR /frontend
 #clone all the code
 copy ./package.json .
 COPY ./Dockerfile .
+COPY ./.env .
 
 #copy tsconfig settings
 COPY ./tsconfig.json .
 COPY ./tsconfig.paths.json .
-# COPY ./yarn.lock .
+COPY ./yarn.lock .
 
 #create src directory
 RUN mkdir /frontend/src
@@ -36,6 +37,9 @@ RUN mkdir /frontend/public
 
 #copy public files
 COPY ./public/ /frontend/public
+
+#Install env-cmd at system level, so that env can be available to the react application
+RUN npm install -g env-cmd
 
 #install all the dependencies
 RUN yarn install

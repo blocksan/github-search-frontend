@@ -8,7 +8,7 @@ import middleware from "redux-thunk";
 import { persistedReducer } from "./store/rootReducer";
 import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
-import { Content } from "./containers/Content/Content";
+import { Content } from "./components/Content/Content";
 import { Provider } from "react-redux";
 import logger from 'redux-logger';
 

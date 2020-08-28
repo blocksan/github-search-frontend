@@ -1,9 +1,10 @@
 @import "./../../shared/scss/mixin.scss";
+@import "./../../shared/scss/variable.scss";
 
 .userCardComponent {
   @include rawCard;
   cursor: pointer;
-  border: 1px solid #eee;
+  border: 1px solid $light-color-shade-3;
   overflow: hidden;
   display: block;
   .cardWrapper {
@@ -16,9 +17,8 @@
     header {
       @include addFlex(center, flex-start, row);
       padding: 10px 20px;
-      // background: $default-background;
-      // border-bottom: 1px solid #eee;
-      transition: all 0.3 ease-in-out;
+      min-height: 140px;
+      transition: all 0.3s ease-in-out;
       position: relative;
       height: 60px;
       .cardImage {
@@ -30,54 +30,51 @@
         border: 1px solid #eee;
         max-width: 120px;
         max-height: 120px;
-        
+
         img {
           @include rawAvatar;
           padding: 10px;
-    box-sizing: border-box;
-    width: 100%;
+          box-sizing: border-box;
+          width: 100%;
         }
       }
     }
     .info {
-      padding: 20px;
-      padding-top: 80px;
+      padding-top: 0px;
       @include addFlex(center, flex-start, column);
+      height: 180px;
       .name {
         text-align: center;
-        font-size: 1.3em;
+        font-size: 1.2em;
         width: 100%;
-        height: 20px;
+        min-height: 40px;
+        background: $default-background;
+        line-height: 40px;
         text-transform: capitalize;
+        transition: all 0.3s ease-in-out;
       }
-      .locationJoinedWrapper{
+      .locationJoinedWrapper {
         @include addFlex(flex-start, center, row);
-          width: 100%;
+        padding: 0 20px;
         margin: 10px 0;
         .location {
-            border: 0;
-            svg{
-                font-size: 0.9em;
-            }
+          border: 0;
+          svg {
+            font-size: 0.9em;
+          }
         }
       }
-        .joinedOn{
-            // margin-left: 30px;
-            i{
-                color: $light-color-shade-1;
-                margin-right: 10px;
-            }
-
-            
+      .joinedOn {
+        padding: 0 20px; 
+        i {
+          color: $light-color-shade-1;
+          margin-right: 10px;
         }
-      .description {
-        p {
-          margin-top: 10px;
-        }
-      }
+      } 
       .iconWrapper {
         @include addFlex(center, center, row);
         margin-top: 15px;
+        width: 100%;
         .cta {
           min-width: 120px;
           border-radius: 5px;
@@ -91,19 +88,25 @@
             margin-right: 10px;
           }
         }
-        .github{
-            background: $default-font-color;
-                color:#fff;
-                margin:0;
-                transition: all 0.3s ease-in-out;
-            &:hover{
-                background: white;
-                color: $primary-color;
-                
-            }
+        .github {
+          width: 60%;
+          background: $default-font-color;
+          color: #fff;
+          margin: 0;
+          transition: all 0.3s ease-in-out;
+          &:hover {
+            background: white;
+            color: $primary-color;
+          }
         }
       }
-      
+      .description {
+        padding: 0 20px;
+        display: none;
+        p {
+          margin-top: 10px;
+        }
+      }
     }
     aside {
       position: absolute;
@@ -140,7 +143,12 @@
       header {
         .cardImage {
           transition: all 0.3s ease-in-out;
-          background: #eee;
+          background: $secondary-background;
+        }
+      }
+      .info{
+        .name{
+          background: $secondary-background;
         }
       }
       aside {

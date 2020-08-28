@@ -1,8 +1,13 @@
 import React from 'react'
 import { HeaderWrapperComponent } from "../../components/HeaderWrapperComponent/HeaderWrapperComponent";
-import { ContentWrapper } from "./../../containers/ContentWrapper/ContentWrapper";
+import { ContentWrapper } from "../ContentWrapper/ContentWrapper";
 
-function ComponentsWrapper() {
+/**
+ * Functional component to wrap 
+ * 1. HeaderWrapperComponent
+ * 2. ContentWrapper
+ */
+const ComponentsWrapper = () => {
     return (
         <div>
              <HeaderWrapperComponent></HeaderWrapperComponent>

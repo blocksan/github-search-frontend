@@ -1,18 +1,19 @@
-import React, { Component } from "react";
-import { IContentProps } from "../../shared/Interfaces";
+import React from "react";
 import "./Content.scss";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-import {ComponentsWrapper} from './../../components/ComponentsWrapper/ComponentsWrapper'
-class Content extends Component<IContentProps, any> {
+import {ComponentsWrapper} from '../ComponentsWrapper/ComponentsWrapper'
+
+/**
+ * Functional component with routes
+ */
+const Content = () => {
   /**
-   * @Remarks
+   * 
    * Renderer function which paints Header and contents
    */
-  render() {
     return (
       <Router>
         <div className="content">
-            
           <Switch>
             <Route path="/" exact component={ComponentsWrapper} />
             <Redirect to="/" />
@@ -20,7 +21,6 @@ class Content extends Component<IContentProps, any> {
         </div>
       </Router>
     );
-  }
 }
 
 export { Content };

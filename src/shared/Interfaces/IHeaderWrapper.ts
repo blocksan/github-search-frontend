@@ -1,5 +1,4 @@
-import { EContentType, TFetchContent } from "./IContent";
-import { ISelectionComponent } from "./ISelectComponent";
+import { TFetchContent } from "./IContent";
 
 export interface IHeaderWrapperProps{
 

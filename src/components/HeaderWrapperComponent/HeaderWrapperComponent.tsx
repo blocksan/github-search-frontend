@@ -68,11 +68,7 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
    */
   useEffect(() => {
       callFetchDispatcher()
-    //TODO:
-    // return () => {
-    //   cleanup
-    // }
-  }, [callFetchDispatcher])
+  })
 
   return (
     <section className={`headerWrapper ${!value && !totalPages ? 'fixed':''}`}>

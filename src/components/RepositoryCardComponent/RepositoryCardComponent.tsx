@@ -15,7 +15,12 @@ import Moment from "react-moment";
 import { momentDateFormat } from "./../../shared/utils/dateFormat";
 import { numberFormatOptions } from "../../shared/utils/numerFormat";
 
-const BaseRepositoryCardComponent = (props: IRespositoryTypeContent) => {
+/**
+ * Functional component to render the search result for respository type
+ * Function has been memoized to prevent from any re-rendering
+ * @param props IRespositoryTypeContent
+ */
+export const BaseRepositoryCardComponent = (props: IRespositoryTypeContent) => {
   const {
     name,
     html_url,
@@ -36,7 +41,7 @@ const BaseRepositoryCardComponent = (props: IRespositoryTypeContent) => {
           </div>
           <div className="cardDetails">
             <h4>{owner.login}</h4>
-            <a target="_blank" href={owner.html_url} className="link">
+            <a target="_blank" rel="noopener noreferrer"  href={owner.html_url} className="link">
               See profile
             </a>
           </div>

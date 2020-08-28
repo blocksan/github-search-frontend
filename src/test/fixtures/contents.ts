@@ -1,4 +1,4 @@
-import { IRepositoryCardProps, IUserCardProps, IUserTypeContent, IRespositoryTypeContent } from "../../shared/Interfaces"
+import { IUserTypeContent, IRespositoryTypeContent } from "../../shared/Interfaces"
 
 export const __UserContents = [
     { 

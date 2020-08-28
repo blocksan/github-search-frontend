@@ -3,7 +3,6 @@ import { IHeaderProps } from '../../shared/Interfaces'
 import './HeaderComponent.scss'
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import crossIcon from './../../shared/images/githubLogo.png'
 
 export const HeaderComponent = (props: IHeaderProps) => {
     return (

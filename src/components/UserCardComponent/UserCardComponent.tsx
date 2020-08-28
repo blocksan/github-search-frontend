@@ -12,6 +12,11 @@ import { faGithub, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import NumericLabel from "react-pretty-numbers";
 import { momentDateFormat } from "./../../shared/utils/dateFormat";
 
+/**
+ * Functional component to render the search result for user type
+ * Function has been memoized to prevent from any re-rendering
+ * @param props IUserTypeContent
+ */
 const BaseUserCardComponent = (props: IUserTypeContent) => {
   const {
     detailInfo: {
@@ -49,7 +54,7 @@ const BaseUserCardComponent = (props: IUserTypeContent) => {
             </span>
           </div>
           <div className="iconWrapper">
-            <a target="_blank" href={html_url} className="link github cta">
+            <a target="_blank" rel="noopener noreferrer"  href={html_url} className="link github cta">
               <FontAwesomeIcon icon={faGithub} title="Star" />
               <strong>Github </strong>
             </a>
@@ -73,7 +78,7 @@ const BaseUserCardComponent = (props: IUserTypeContent) => {
               <span>{followers}</span>
             </div>
             <div className="infoIcons">
-              <a target="_blank" href={blog}>
+              <a target="_blank" rel="noopener noreferrer"  href={blog}>
                 <FontAwesomeIcon
                   icon={faGlobeAsia}
                   title="Blog"

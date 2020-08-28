@@ -2,10 +2,6 @@ import { actions } from './../../shared/utils/action';
 import { TFetchContent } from '../../shared/Interfaces';
 import { loadingState, successState, failedState } from '../../shared/contants/__BaseAPI';
 import { axiosInstance } from './../../shared/utils/axios'
-import { __UserContents, __RepositoryContents } from '../../test/fixtures/contents';
-import { IWindow } from '../../shared/Interfaces/IWindow';
-
-let customWindow: Partial<IWindow> = window;
 /**
  * Content action dispatchers
  * @remarks

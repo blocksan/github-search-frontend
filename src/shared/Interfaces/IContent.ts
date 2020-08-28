@@ -12,10 +12,6 @@ export type TFetchContent = {
     searchkey: string
 }
 
-export interface IContentProps{
-    
-}
-
 export interface IContentReducer{
     fetchingContent: boolean;
     fetchingContentStatus: boolean;

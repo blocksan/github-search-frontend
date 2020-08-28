@@ -8,11 +8,20 @@ import { EContentType, TFetchContent } from "../../shared/Interfaces/IContent";
 import "./ContentWrapper.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { RepositoryCardComponent } from "../../components/RepositoryCardComponent/RepositoryCardComponent";
-import { UserCardComponent } from "../../components/UserCardComponent/UserCardComponent";
+import { RepositoryCardComponent } from "../RepositoryCardComponent/RepositoryCardComponent";
+import { UserCardComponent } from "../UserCardComponent/UserCardComponent";
 import { connect } from "react-redux";
 import { fetchContentAction } from "../../store/rootActions";
 
+/**
+ * Functional component which acts as wrapper for User Card or Repository card
+ * 1. Infinite scroll
+ * 2. User card
+ * 3. Repository card
+ * 4. Error component
+ * 5. Loading component
+ * @param props IContentWrapperProps
+ */
 const BaseContentWrapper = (props: IContentWrapperProps) => {
   const {
     contents,
@@ -26,6 +35,11 @@ const BaseContentWrapper = (props: IContentWrapperProps) => {
   } = props;
 
   const observer = useRef() as React.MutableRefObject<any>;
+  /**
+   * Utility to get the observer for the last item in the list using React Ref
+   * The last item will be used to check the Intersection when it shows on View Port
+   * fetchContentDispatcher method will be invoked every time the last item is being on shown on View Port
+   */
   const lastElementRef = useCallback(
     (node) => {
       if (loading) return;
@@ -41,6 +55,14 @@ const BaseContentWrapper = (props: IContentWrapperProps) => {
     },
     [loading, page, totalPages, value, fetchContentDispatcher]
   );
+  /**
+   * There are different cases based on which components are rendering
+   * 1. Loading -> Loading icon on the view
+   * 2. Not Loading and Contents available -> Show contents list
+   * 3. Not Loading and Error occured -> Show error text with red color
+   * 4. Infinite scroll loading i.e Page > 1 and loading state -> show overlay loading and do not hide the contents
+   * 5. Infinite scroll loading i.e Page > 1 and successful state -> show the appended contents into the view
+   */
   return (
     <>
     {value && <div className="contentWrapper">

@@ -47,22 +47,6 @@ export const ContentReducer = (state = initialState, action: IReducerAction) => 
                 fetchingContent: false,fetchingContentStatus: action.status,type: action.contentType, fetchingContentError: action.error,contentList:[]
             }
         }
-        case actions.RESET_CONTENT:{
-            const {loading} = action;
-            if(loading){
-                return { ...state, fetchingContent: true, fetchingContentError: undefined, contentList: [] };
-            }
-            if(action.status){
-                return {
-                    ...state,
-                    fetchingContent: false, fetchingContentStatus: action.status, fetchingContentError: undefined, contentList: action.payload
-                }
-            }
-            return {
-                ...state,
-                fetchingContent: false,fetchingContentStatus: action.status, fetchingContentError: action.error, contentList: []
-            }
-        }
         default:
             return state
     }
