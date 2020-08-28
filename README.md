@@ -52,7 +52,7 @@ Following technologies have been used while building this application
 #### Features included in this backend service
   -  **Infinite Scrolling** 
   -  **Store Rehydration** using React Persist
-  -  ***API Caching*** using sessionStorage
+  -  **API Caching** using sessionStorage
   -  **JSDoc Comments** for the internal components
   -  **Component Based structure** 
   -  **Test Cases** (action and reduces)
