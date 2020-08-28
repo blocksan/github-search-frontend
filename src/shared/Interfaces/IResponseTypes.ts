@@ -98,17 +98,19 @@ export type IRespositoryTypeContent = {
 
 export type IContentItems = Array<IUserTypeContent|IRespositoryTypeContent>
 
+export type IContent = {
+    total_count: number,
+    incomplete_results: boolean,
+    items: IContentItems
+    totalPages:number
+}
+
 /**
  * Default success response from API
  */
 export type ISuccessResponse = {
     status: true,
-    content:{
-        total_count: number,
-        incomplete_results: boolean,
-        items: IContentItems
-    }
-    totalPages:number
+    content:IContent
 }
 
 /**
