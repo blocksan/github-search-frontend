@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 import { fetchContentAction } from "../../store/rootActions";
 
 export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
-  const { totalPages } = props;
+  const { totalPages, value: storevalue } = props;
 
   const [value, setSearchValue] = useState("")
   const [page, setInitPage] = useState(1)
@@ -71,12 +71,13 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
   })
 
   return (
-    <section className={`headerWrapper ${!value && !totalPages ? 'fixed':''}`}>
+    <section className={`headerWrapper ${(!value && !storevalue) && !totalPages ? 'fixed':''}`}>
       <section className="elementWrapper">
         <HeaderComponent></HeaderComponent>
         <article>
           <SearchComponent
             inputChangeEvent={handleInputChange}
+            storevalue={storevalue}
           ></SearchComponent>
           <SelectionComponent
             typeChangedEvent={handleTypeChange}
@@ -90,6 +91,7 @@ export const BaseHeaderWrapperComponent = (props: IHeaderWrapperProps) => {
 
 const stateToProps = (state: any) => {
   return {
+    value: state.content.searchkey,
     totalPages: state.content.totalPages
   }
 };

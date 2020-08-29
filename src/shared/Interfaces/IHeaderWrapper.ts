@@ -13,4 +13,8 @@ export interface IHeaderWrapperProps{
      */
     totalPages: number;
 
+    /**
+     * searchkey
+     */
+    value: string;
 }
