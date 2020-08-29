@@ -59,7 +59,7 @@ Following technologies have been used while building this application
 ##### Screen size 768
 [![dPTPxp.md.png](https://iili.io/dPTPxp.md.png)](https://freeimage.host/i/dPTPxp)
 
-#### Features included in this backend service
+#### Features included in this frontend service
   -  **Infinite Scrolling** 
   -  **Store Rehydration** using React Persist
   -  **API Caching** using sessionStorage
