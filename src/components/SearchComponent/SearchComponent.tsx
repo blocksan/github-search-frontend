@@ -26,6 +26,10 @@ export const SearchComponent = (props: ISearchComponent) => {
         inputChangeEvent(storevalue)
     }
 
+    /**
+     * Updating the value of input box on page reload
+     * Initially inputRef will be null, hence delegating the work to Worker thread will make it run after component completes rendering
+     */
     setTimeout(function(){
         if(storevalue && inputRef.current){
             inputRef.current.value = storevalue
