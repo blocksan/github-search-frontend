@@ -93,6 +93,8 @@ touch .env
     -  Add the base url for the server in the .env file
 yarn install
 
+npm install -g env-cmd
+
 yarn start
     Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 yarn test
