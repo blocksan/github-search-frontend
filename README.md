@@ -59,6 +59,9 @@ Following technologies have been used while building this application
 ##### Screen size 768
 [![dPTPxp.md.png](https://iili.io/dPTPxp.md.png)](https://freeimage.host/i/dPTPxp)
 
+##### Test Cases
+[![diBmLF.md.png](https://iili.io/diBmLF.md.png)](https://freeimage.host/i/diBmLF)
+
 #### Features included in this frontend service
   -  **Infinite Scrolling** 
   -  **Store Rehydration** using React Persist
