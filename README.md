@@ -1,4 +1,4 @@
-# Github Searcher Frontend Service   
+# Github Searcher Frontend Service  ( [github-search-frontend](https://github.com/blocksan/github-search-frontend) )
 It is the frontend application which will serve the UI for the github searcher application built with ***infinite scroll*** and ***multi stage docker build***.
 Following technologies have been used while building this application
 #### Technologies used
